@@ -1,0 +1,107 @@
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: transform 0.5s ease, z-index 0s 0.5s;
+  cursor: pointer;
+}
+
+.section1 {
+  background: #ff4e50; 
+  clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
+}
+
+.section2 {
+  background: #8e2de2;
+  clip-path: polygon(25% 0, 100% 0, 75% 100%, 0 100%);
+}
+
+.section3 {
+  background: #4e54c8; 
+  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+}
+.title {
+  font-size: 2rem;
+  color: white;
+  position: absolute;
+  transition: transform 0.5s ease; 
+  z-index: 2;
+  right: 25%;
+}
+
+.description {
+  font-size: 1rem;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease; 
+  position: absolute;
+  top: 70%; 
+  text-align: center;
+  width: 100%; 
+  z-index: 1;
+  transform: translateY(20px); 
+}
+
+.section:hover {
+  transform: scale(1.08); 
+  z-index: 3; 
+}
+
+.section:hover .description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.link {
+  text-decoration: none;
+  color: inherit; 
+}
+
+.section:hover .title {
+  transform: scale(0.92); 
+}
+
+@media (max-width: 768px) { 
+  .container {
+    flex-direction: column;
+  }
+
+  .section {
+    width: 95%;
+    height: 33.33vh; 
+    flex: none; 
+    justify-content: center;
+    align-items: center;
+    clip-path: none; 
+  }
+
+  .section1, .section2, .section3 {
+    clip-path: none; 
+  }
+
+  .title, .description {
+    font-size: 1.2rem; 
+  }
+
+  .title {
+    top: 40%;
+  }
+
+  .description {
+    transform: translateY(10px); 
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+}
+
+.section:hover .title, .section:hover .description {
+  transform: none; 
+}

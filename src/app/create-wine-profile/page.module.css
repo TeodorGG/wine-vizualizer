@@ -1,0 +1,117 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  height: 100%;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  min-width: 500px;
+  height: 100vh;
+}
+
+.formGroup {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.label {
+  margin-bottom: 5px;
+}
+
+.input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button {
+  padding: 10px 15px;
+  background-color: #0070f3;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.formGroup input {
+  width: 200px; 
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+}
+
+.suggestions {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 5px;
+  background: rgb(118, 118, 118);
+  border: 1px solid #ccc;
+  border-top: none;
+  position: absolute;
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.suggestions li {
+  padding: 5px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.suggestions li:hover {
+  background-color: #262626;
+}
+
+.loader {
+  border: 4px solid #f3f3f3; 
+  border-radius: 50%;
+  border-top: 4px solid #3498db; 
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.list_element {
+  height: 25px;
+  padding: 5px;
+  margin-bottom: 10px;
+  background-color: #6a6a6aaa;
+  position: relative;
+  z-index: 1;
+}
+
+.hoverContainer {
+  position: absolute;
+  left: 0;
+  top:0;
+  background-color: rgb(37, 33, 47);
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 2;  
+  display: block; 
+}

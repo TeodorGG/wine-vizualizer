@@ -1,0 +1,80 @@
+/* page.module.css */
+.container {
+  padding: 32px; 
+  font-family: 'Arial', sans-serif;
+}
+
+.dashed_border {
+  border: 2px dashed #ccc; 
+  padding: 16px;
+}
+
+.title {
+  font-size: 1.25rem; 
+  font-weight: bold;
+}
+
+.criterion_abel {
+  display: block;
+  margin-bottom: 8px; 
+}
+
+.criterion_select,
+.textarea {
+  border: 1px solid #ccc;
+  padding: 8px; 
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px; 
+}
+
+.textarea {
+  height: auto;
+  min-height: 80px; 
+}
+
+.criterion-title {
+  font-weight: 600;
+}
+
+.inputs_row {
+  display: flex;
+  justify-content: space-between; 
+}
+
+.suggestions {
+  position: absolute;
+  background: rgb(88, 87, 87);
+  border: 1px solid #ccc;
+  border-top: none;
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.suggestions li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.suggestions li:hover {
+  background-color: #1d1040;
+}
+
+.button_container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  margin-top: 20px; 
+}
+
+.button{
+  height: 40px;
+  width: 120px;
+}
