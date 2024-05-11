@@ -1,0 +1,47 @@
+name: NodeJS with Grunt
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies for the API
+      run: npm install
+      working-directory: ./api
+
+    - name: Start API server
+      run: node server.js
+      working-directory: ./api
+      continue-on-error: true 
+      
+    - name: Install dependencies for main application
+      run: npm install
+      working-directory: .
+
+    - name: Build and run main application
+      run: |
+        grunt
+        npm start # presupunând că npm start este configurat să pornească aplicația ta
+      working-directory: .
+
+    - name: Run tests or other commands
+      run: |
+        # Adaugă comenzi pentru teste sau alte operațiuni necesare
+      working-directory: .
