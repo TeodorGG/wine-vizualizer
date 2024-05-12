@@ -2,16 +2,21 @@
 
 import React, { useState } from 'react';
 import styles from './page.module.css';
-import { API_BASE_URL } from '@/utils/constans';
 
 export default function RecommendWine() {
   const [description, setDescription] = useState('');
   const [results, setResults] = useState([]);
 
   const handleSubmit = async () => {
-    const response = await fetch(API_BASE_URL + `/search?keywords=${encodeURIComponent(description)}`);
+    const response = await fetch(`api/search?keywords=${encodeURIComponent(description)}`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  
     const data = await response.json();
-    setResults(data);
+
+    setResults(data.results);
   };
 
   const handleWineClick = (id) => {

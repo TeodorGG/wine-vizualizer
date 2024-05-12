@@ -16,7 +16,7 @@ export default function CompareWines() {
   const [chartsData, setChartsData] = useState({ vintage: null, alcool: null, color: null, style: null, organic:null, biodynamic:null, fairtrade:null, closure:null, grape:null, keywords1:null, keywords2:null  });
 
   useEffect(() => {
-    fetchData(API_BASE_URL + `/unique-values`).then(data => {
+    fetchData(`api/unique-values`).then(data => {
       setOptions(data[selectedCriterion]);
     });
   }, [selectedCriterion]); 
@@ -48,7 +48,7 @@ export default function CompareWines() {
   };
 
   const handleFetchData = async () => {
-    const data = await fetchData(API_BASE_URL + `/compare-data?column=${encodeURIComponent(selectedCriterion)}&values=${encodeURIComponent(inputValue1)},${encodeURIComponent(inputValue2)}`);
+    const data = await fetchData(`api/compare-data?column=${encodeURIComponent(selectedCriterion)}&values=${encodeURIComponent(inputValue1)},${encodeURIComponent(inputValue2)}`);
     const { firstValue, secondValue } = data;
     setChartsData(processChartData(firstValue, secondValue, inputValue1, inputValue2));
   };

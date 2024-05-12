@@ -180,6 +180,11 @@ app.get('/compare-wines', (req, res) => {
         });
 });
 
+function meetsCriteria(data, criteria) {
+    return Object.entries(criteria).every(([key, value]) => !value || data[key]);
+}
+
+
 app.get('/unique-values', (req, res) => {
     const producers = new Set();
     const countries = new Set();
@@ -226,6 +231,17 @@ const columnMap = {
     grapeVarieties: 'grape_variety',
     producers: 'producer'
 };
+
+function parseGrapeVariety(grapeVarietyString) {
+    try {
+      const formattedString = grapeVarietyString.replace(/'/g, '"');
+      const grapeVarietyObject = JSON.parse(formattedString);
+      return grapeVarietyObject.grapeVariety;
+    } catch (error) {
+      console.error('Failed to parse grape variety:', error);
+      return 'Parsing error';
+    }
+  }
 
 app.get('/compare-data', (req, res) => {
     const clientColumn = req.query.column;
@@ -281,22 +297,10 @@ app.get('/search', (req, res) => {
         });
 });
 
-function parseGrapeVariety(grapeVarietyString) {
-    try {
-      const formattedString = grapeVarietyString.replace(/'/g, '"');
-      const grapeVarietyObject = JSON.parse(formattedString);
-      return grapeVarietyObject.grapeVariety;
-    } catch (error) {
-      console.error('Failed to parse grape variety:', error);
-      return 'Parsing error';
-    }
-  }
+
   
 
 
-function meetsCriteria(data, criteria) {
-    return Object.entries(criteria).every(([key, value]) => !value || data[key]);
-}
 
 
 

@@ -40,7 +40,7 @@ export default function CreateWineProfile() {
   useOnClickOutside(ref, () => setSuggestions([])); 
 
   useEffect(() => {
-    fetch(API_BASE_URL + '/unique-countries')
+    fetch('api/unique-countries')
       .then(response => response.json())
       .then(data => {
         setCountries(data); 
@@ -49,7 +49,7 @@ export default function CreateWineProfile() {
         console.error('Error fetching data: ', error);
       });
     
-    fetch(API_BASE_URL + '/unique-vintages')
+    fetch('api/unique-vintages')
       .then(response => response.json())
       .then(data => {
         setYears(data); 
@@ -95,7 +95,7 @@ export default function CreateWineProfile() {
     const newTimer = setTimeout(() => {
       if (value.length >= 3) { 
         setLoading(true);
-        fetch(API_BASE_URL + `/search-wines?name=${value}`)
+        fetch(`api/search-wines?name=${value}`)
           .then(response => response.json())
           .then(data => {
             setSuggestions(data);
@@ -128,13 +128,12 @@ export default function CreateWineProfile() {
     queryParams.append('page', page); 
     queryParams.append('limit', limit);
 
-    const response = await fetch(API_BASE_URL + `/search-wines-l?${queryParams}`);
+    const response = await fetch(`api/search-wines-l?${queryParams}`);
     const data = await response.json();
     setResults(data.data);
     setTotalPages(data.totalPages); 
     setLoading1(false)
 
-    console.log(JSON.stringify(data));
 };
 
 const nextPage = () => {
@@ -157,7 +156,10 @@ const fetchWineDetails = async (wineId) => {
 
   try {
 
-      const response = await fetch(API_BASE_URL + `/wine/${wineId}`);
+      const queryParams = new URLSearchParams();
+      queryParams.append('id', wineId);
+
+      const response = await fetch(`api/wine?${queryParams}`);
 
       if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -176,7 +178,10 @@ const fetchWineDetails = async (wineId) => {
 const fetchWineDetailsForProfile = async (wineId) => {
   try {
 
-      const response = await fetch(API_BASE_URL + `/wine/${wineId}`);
+      const queryParams = new URLSearchParams();
+      queryParams.append('id', wineId);
+
+      const response = await fetch(`api/wine?${queryParams}`);
 
       if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
