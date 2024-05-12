@@ -2,7 +2,7 @@ import fs from 'fs';
 import csv from 'csv-parser';
 import path from 'path';
 import { NextResponse } from 'next/server';
-
+export const dynamic = 'force-dynamic'; 
 const csvFilePath = path.join(process.cwd(), './dataset/dataset.csv');
 const columnMap = {
     countries: 'country',

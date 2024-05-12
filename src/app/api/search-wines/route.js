@@ -4,6 +4,7 @@ import path from 'path';
 
 import { NextResponse } from 'next/server';
 
+export const dynamic = 'force-dynamic'; 
 export async function GET(request) {
     const csvFilePath = path.join(process.cwd(), './dataset/dataset.csv');
 
