@@ -276,7 +276,7 @@ function parseGrapeVariety(grapeVarietyString) {
               
               {
                 countries.map(element => (
-                  <option value={element}>{element}</option>
+                  <option key={element} value={element}>{element}</option>
                 ))
               }
             </select>
@@ -297,7 +297,7 @@ function parseGrapeVariety(grapeVarietyString) {
               
               {
                 years.map(element => (
-                  <option value={element}>{element}</option>
+                  <option key={element} value={element}>{element}</option>
                 ))
               }
             </select>
