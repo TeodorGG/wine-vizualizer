@@ -2,7 +2,7 @@ import fs from 'fs';
 import csv from 'csv-parser';
 import path from 'path';
 import { NextResponse } from 'next/server';
-import { getURL } from 'next/dist/shared/lib/utils';
+import { getUrl } from '@/app/utils';
 
 export async function GET(request) {
     const csvFilePath = path.join(process.cwd(), './dataset/dataset.csv');
