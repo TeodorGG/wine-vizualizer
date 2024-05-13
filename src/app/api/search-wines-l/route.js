@@ -6,7 +6,7 @@ import { getUrl } from '@/app/api_function';
 
 export async function GET(request) {
     const csvFilePath = path.join(process.cwd(), './dataset/dataset.csv');
-    const url = new URL(getURL(request));
+    const url = new URL(getUrl(request));
     const page = parseInt(url.searchParams.get('page')) || 1;
     const limit = parseInt(url.searchParams.get('limit')) || 5;
     let results = [];
