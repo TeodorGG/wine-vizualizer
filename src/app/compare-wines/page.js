@@ -6,6 +6,8 @@ import ChartDataSample from '@/utils/AlcoolLevelChart';
 import { fetchData, processChartData } from '../utils.js';
 import { KeywordsChart } from '@/utils/AlcoolLevelChart';
 import { API_BASE_URL } from '@/utils/constans';
+export const dynamic = "force-dynamic"
+
 export default function CompareWines() {
   const [selectedCriterion, setSelectedCriterion] = useState('countries');
   const [options, setOptions] = useState([]);

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import styles from './page.module.css';
+export const dynamic = "force-dynamic"
 
 export default function RecommendWine() {
   const [description, setDescription] = useState('');

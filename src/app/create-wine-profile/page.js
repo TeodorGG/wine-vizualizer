@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './page.module.css';
 import useOnClickOutside from '../utils';
 import { API_BASE_URL } from '@/utils/constans';
+export const dynamic = "force-dynamic"
 
 export default function CreateWineProfile() {
   const [showProvileForId, setShowProvileForId] = useState('');
