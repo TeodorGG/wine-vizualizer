@@ -1,4 +1,3 @@
-"use server"
 import fs from 'fs';
 import csv from 'csv-parser';
 import path from 'path';
@@ -6,7 +5,7 @@ import { NextResponse } from 'next/server';
 import { getUrl } from '@/app/api_function';
 
 const csvFilePath = path.join(process.cwd(), './dataset/dataset.csv');
-
+export const dynamic = 'dynamic force';
 export async function GET(request) {
     const url = new URL(getUrl(request));
     const country1 = url.searchParams.get('country1') || '';

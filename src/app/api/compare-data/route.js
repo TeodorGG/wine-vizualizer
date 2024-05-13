@@ -1,10 +1,9 @@
-"use server"
 import fs from 'fs';
 import csv from 'csv-parser';
 import path from 'path';
 import { NextResponse } from 'next/server';
 import { getUrl } from '@/app/api_function';
-
+export const dynamic = 'dynamic force';
 const csvFilePath = path.join(process.cwd(), './dataset/dataset.csv');
 const columnMap = {
     countries: 'country',
