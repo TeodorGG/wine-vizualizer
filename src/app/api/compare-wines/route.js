@@ -53,4 +53,3 @@ function meetsCriteria(data, criteria) {
     });
 }
 
-export const dynamic = "force-dynamic"

@@ -62,4 +62,3 @@ export async function GET(request) {
         });
     }
 }
-export const dynamic = "force-dynamic"
