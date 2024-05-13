@@ -2,11 +2,12 @@ import fs from 'fs';
 import csv from 'csv-parser';
 import path from 'path';
 import { NextResponse } from 'next/server';
+import { getUrl } from '@/app/api_function';
 
 const csvFilePath = path.join(process.cwd(), './dataset/dataset.csv');
 
 export async function GET(request) {
-    const url = new URL(request.url);
+    const url = new URL(getUrl(request));
 
     const id = (url.searchParams.get('id') || '');
 

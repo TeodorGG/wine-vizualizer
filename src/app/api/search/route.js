@@ -1,12 +1,13 @@
 import fs from 'fs';
 import csv from 'csv-parser';
 import path from 'path';
+import { getUrl } from '@/app/api_function';
 
 import { NextResponse } from 'next/server';
 export async function GET(request) {
     const csvFilePath = path.join(process.cwd(), './dataset/dataset.csv');
 
-    const url = new URL(request.url);
+    const url = new URL(getUrl(request));
     const keywords = url.searchParams.get('keywords').toLowerCase().split(" ");
 
     const results = [];
