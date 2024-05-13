@@ -4,7 +4,6 @@ import path from 'path';
 import { NextResponse } from 'next/server';
 
 const csvFilePath = path.join(process.cwd(), './dataset/dataset.csv');
-export const dynamic = 'force-dynamic'; 
 export async function GET(request) {
     const producers = new Set();
     const countries = new Set();
