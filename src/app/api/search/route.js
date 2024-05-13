@@ -2,7 +2,6 @@ import fs from 'fs';
 import csv from 'csv-parser';
 import path from 'path';
 import { getUrl } from '@/app/api_function';
-export const dynamic = "force-dynamic"
 
 import { NextResponse } from 'next/server';
 export async function GET(request) {
@@ -42,3 +41,4 @@ export async function GET(request) {
     }
 }
 
+export const dynamic = "force-dynamic"

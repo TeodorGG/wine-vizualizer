@@ -3,7 +3,6 @@ import csv from 'csv-parser';
 import path from 'path';
 import { NextResponse } from 'next/server';
 import { getUrl } from '@/app/api_function';
-export const dynamic = "force-dynamic"
 
 const csvFilePath = path.join(process.cwd(), './dataset/dataset.csv');
 
@@ -44,3 +43,4 @@ export async function GET(request) {
         });
     }
 }
+export const dynamic = "force-dynamic"
