@@ -16,20 +16,20 @@ steps:
   inputs:
     action: 'Build services'
     dockerComposeFile: 'build/docker-compose.yml'
-    projectName: 'Prasada'
+    projectName: 'WineVisualizator'
     buildImages: true
 - task: DockerCompose@0
   displayName: 'Down Docker Compose'
   inputs:
     action: 'Run a Docker Compose command'
     dockerComposeFile: 'build/docker-compose.yml'
-    projectName: 'Prasada'
+    projectName: 'WineVisualizator'
     dockerComposeCommand: 'down'
 - task: DockerCompose@0
   displayName: 'Up Docker Compose'
   inputs:
     action: 'Run a Docker Compose command'
     dockerComposeFile: 'build/docker-compose.yml'
-    projectName: 'Prasada'
+    projectName: 'WineVisualizator'
     dockerComposeCommand: 'up'
     arguments: '-d'
