@@ -1,0 +1,35 @@
+trigger:
+- main
+
+pool: Prasada1
+
+steps:
+- task: CmdLine@2
+  inputs:
+    script: |
+      ls
+      cd src
+      ls
+
+- task: DockerCompose@0
+  displayName: 'Run Docker Compose'
+  inputs:
+    action: 'Build services'
+    dockerComposeFile: 'build/docker-compose.yml'
+    projectName: 'Prasada'
+    buildImages: true
+- task: DockerCompose@0
+  displayName: 'Down Docker Compose'
+  inputs:
+    action: 'Run a Docker Compose command'
+    dockerComposeFile: 'build/docker-compose.yml'
+    projectName: 'Prasada'
+    dockerComposeCommand: 'down'
+- task: DockerCompose@0
+  displayName: 'Up Docker Compose'
+  inputs:
+    action: 'Run a Docker Compose command'
+    dockerComposeFile: 'build/docker-compose.yml'
+    projectName: 'Prasada'
+    dockerComposeCommand: 'up'
+    arguments: '-d'

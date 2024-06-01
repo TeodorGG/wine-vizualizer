@@ -6,7 +6,6 @@
 .pnp.js
 .yarn/install-state.gz
 
-.idea
 # testing
 /coverage
 
@@ -15,7 +14,7 @@
 /out/
 
 # production
-src/build
+/build
 
 # misc
 .DS_Store
@@ -35,4 +34,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-sendgrid.env
